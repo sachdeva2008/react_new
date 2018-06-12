@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 const Person = (Props) => {
 	return (
-			<div>
-				<h3 onClick={Props.click}>I am {Props.Name} and my age is {Props.Age}</h3>
+			<div className="Person">
+				<h3 onClick={Props.Click}>I am {Props.Name} and my age is {Props.Age}</h3>
 				<p>{Props.children}</p>
+				<input type="text" onChange={Props.Change} />
 			</div>
 		);
 }
