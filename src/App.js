@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   nameChangedHandler = (event,index) => {
-    let personsList = this.state.persons;
+    let personsList = [...this.state.persons];
     personsList[index].Name = event.target.value;
     this.setState ({
       persons:personsList
@@ -45,6 +45,8 @@ class App extends Component {
   }
 
   render() {
+    const style = {border: '3px solid #008000'};
+    //const styleRed = {border: '3px solid red'};
 
     let Persons = null
 
@@ -57,12 +59,13 @@ class App extends Component {
 
           </div>
         )
+        style.border =  '3px solid red';
     }
 
     return (
       <div className="App">
        <h1>Hello I am a React Page.</h1>
-       <button onClick={this.showPersonHandler}>Switch Name</button>
+       <button style = {style} onClick={this.showPersonHandler}>Switch Name</button>
        {Persons}
 
       </div>
