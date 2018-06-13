@@ -40,21 +40,28 @@ class App extends Component {
   }
 
   render() {
+
+    let Persons = null
+
+    if(this.state.showPersonList){
+          Persons = (
+          <div>
+            <p><Person
+            Name = {this.state.persons[0].Name} Age = {this.state.persons[0].Age} Change = {this.nameChangedHandler} Click = {this.switchNameHandler.bind(this,"Mohit Sachdeva")}
+            /></p>
+            <p><Person
+            Name = {this.state.persons[1].Name} Age = {this.state.persons[1].Age} >I am from Delhi.
+            </Person>
+            </p>
+          </div>
+        )
+    }
+
     return (
       <div className="App">
        <h1>Hello I am a React Page.</h1>
        <button onClick={this.showPersonHandler}>Switch Name</button>
-       { this.state.showPersonList ?
-         <div>
-       <p><Person
-            Name = {this.state.persons[0].Name} Age = {this.state.persons[0].Age} Change = {this.nameChangedHandler} Click = {this.switchNameHandler.bind(this,"Mohit Sachdeva")}
-          /></p>
-       <p><Person
-            Name = {this.state.persons[1].Name} Age = {this.state.persons[1].Age} >I am from Delhi.
-          </Person>
-       </p>
-       </div> : null
-     }
+       {Persons}
 
       </div>
     );
