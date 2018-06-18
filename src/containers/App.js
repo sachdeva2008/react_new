@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
-import Person from '../components/Persons/Person/Person';
+import Personss from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 import './App.css';
 import '../components/Persons/Person/Person.css';
+
 
 class App extends Component {
 
@@ -53,9 +55,10 @@ class App extends Component {
     if(this.state.showPersonList){
           Persons = (
           <div>
-            {this.state.persons.map((person,index) => {
-                return <p><Person Change = {(event)=>this.nameChangedHandler(event,index)} Name = {person.Name} Age = {person.Age} Click={() => this.deletePersonHandler(index)} ></Person></p>
-            })}
+            <Personss persons = {this.state.persons}
+                Changed = { this.nameChangedHandler}
+                Clicked = {this.deletePersonHandler}
+            />
 
           </div>
         )
@@ -64,8 +67,8 @@ class App extends Component {
 
     return (
       <div className="App">
-       <h1>Hello I am a React Page.</h1>
-       <button style = {style} onClick={this.showPersonHandler}>Switch Name</button>
+       <Cockpit Clicked = {this.showPersonHandler} style = {style}
+       />
        {Persons}
 
       </div>
